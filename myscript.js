@@ -39,11 +39,25 @@ posts.forEach(element => {
                 </div> 
             </div>`
 divPost.innerHTML = contenutoPost;
-//seleciono il bottone mi piace 
-let btLike = document.getElementsByClassName('like-button')
-// creo una funzione dove al click sul "Mi Piace" cambio colore al testo e incremento il counter dei like 
-btLike.addEventListener('click',
-    document.classList.add("azzurro")
-)
+ //creo un nuovo array per i post liked
+ const likedPosts = [];
+ //seleciono il bottone mi piace 
+//  let btLike = document.querySelector('.like-button');
+posts.forEach(element => {
+    //seleciono il bottone mi piace 
+    let btLike = document.querySelector('.like-button');
+    // creo una funzione dove al click sul "Mi Piace" cambio colore al testo e incremento il counter dei like
+    btLike.addEventListener("click",
+        function(){
+        btLike.classList.add("like-button_liked");
 
+        // if (btLike.classList.contains("like-button_liked")){
+        //     const postId = btLike.getAttribute('data-postid');
+        //     likedPosts.push(btLike);
+        //     console.log(likedPosts);
+        // }
+        }   
+    ) 
+
+});
 });

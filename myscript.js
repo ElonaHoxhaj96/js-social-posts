@@ -8,7 +8,7 @@ posts.forEach(element => {
 
     let container = document.getElementById('container');
     container.appendChild(divPost);
-   //creo una funzione per stampare in pagina i vari elementi del mio array object
+   //stampare in pagina i vari elementi del mio object
     let contenutoPost = `
             <div class="post__header">
                 <div class="post-meta">                    
@@ -28,16 +28,22 @@ posts.forEach(element => {
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                        <a class="like-button  js-like-button" href="#" data-postid="${element.id}">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace</span>
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="${element.id}" class="js-likes-counter">80</b> persone
+                        Piace a <b id="${element.id}" class="js-likes-counter">${element.likes}</b> persone
                     </div>
                 </div> 
             </div>`
+divPost.innerHTML = contenutoPost;
+//seleciono il bottone mi piace 
+let btLike = document.getElementsByClassName('like-button')
+// creo una funzione dove al click sul "Mi Piace" cambio colore al testo e incremento il counter dei like 
+btLike.addEventListener('click',
+    document.classList.add("azzurro")
+)
 
-   divPost.innerHTML = contenutoPost;
 });
